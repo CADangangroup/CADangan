@@ -24,7 +24,8 @@ De2 board Cyclone II ( EP2C35F672C6N )
 
 # Datapath Unit
 
-module datapathUnit
+
+	module datapathUnit
 	(
 		CLOCK_50,						//	On Board 50 MHz
 		// Your inputs and outputs here
@@ -46,7 +47,6 @@ module datapathUnit
 		VGA_G,	 						//	VGA Green[9:0]
 		VGA_B   						//	VGA Blue[9:0]
 	);
-
 	input			CLOCK_50;				//	50 MHz
 	input   [9:0]   SW;
 	input   [3:0]   KEY;
