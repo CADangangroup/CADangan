@@ -148,12 +148,9 @@ De2 board Cyclone II ( EP2C35F672C6N )
 		
 		assign enable2 = (collided == 0) ? enable : 0;
 
-		
-	
-		
-endmodule
+	endmodule
 
-module collision(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, dino_x, dino_y, collision_detected);
+	module collision(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, dino_x, dino_y, collision_detected);
 	input [7:0] inx3, inx2, inx1, inx0;
 	input [6:0] iny3, iny2, iny1, iny0;
 	input [7:0] dino_x;
@@ -189,11 +186,11 @@ module collision(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, dino_x, dino_y,
 			collision_detected = 1'b0;
 	end
 
-endmodule
+	endmodule
 			
 	
 
-module box_dino(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, inx_erase, iny_erase, dino_x, dino_y, dino_c, clock50mil, resetn, draw0, draw1, draw2, draw3, column_en, dinowriteEn, boxwriteEn, writeEn, outx, outy, outc);
+	module box_dino(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, inx_erase, iny_erase, dino_x, dino_y, dino_c, clock50mil, resetn, draw0, draw1, draw2, draw3, column_en, 	 dinowriteEn, boxwriteEn, writeEn, outx, outy, outc);
 	input [7:0] inx3, inx2, inx1, inx0;
 	input [6:0] iny3, iny2, iny1, iny0;
 	input [3:0] inx_erase;
@@ -238,12 +235,12 @@ module box_dino(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, inx_erase, iny_e
 		else 
 			writeEn = 1'b0;
 	end
-endmodule
+	endmodule
 
 
 
 
-module combined_boxdatapaths(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, inx_erase, iny_erase, clock50mil, resetn, draw0, draw1, draw2, draw3, column_en, x, y, c);
+	module combined_boxdatapaths(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, inx_erase, iny_erase, clock50mil, resetn, draw0, draw1, draw2, draw3, column_en, x, y, c);
 	input [7:0] inx3, inx2, inx1, inx0;
 	input [6:0] iny3, iny2, iny1, iny0;
 	input [3:0] inx_erase;
@@ -303,10 +300,10 @@ module combined_boxdatapaths(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, inx
 			c = 0;
 		end
 	end
-endmodule
+	endmodule
 		
 
-module box_control(clock4ps, enable, erase_box, clock50mil, resetn, draw0, draw1, draw2, draw3, erase_en, plot, pause_dino);
+	module box_control(clock4ps, enable, erase_box, clock50mil, resetn, draw0, draw1, draw2, draw3, erase_en, plot, pause_dino);
 	input [3:0]enable; // enable signal for each box
 	input clock4ps, clock50mil, resetn, erase_box;
 	
@@ -430,9 +427,9 @@ module box_control(clock4ps, enable, erase_box, clock50mil, resetn, draw0, draw1
 			current_state <= next_state;
 	end
 	
-endmodule
+	endmodule
 
-module datapath(box_en, inx, iny, inc, clock50mil, resetn, outx, outy, outc);
+	module datapath(box_en, inx, iny, inc, clock50mil, resetn, outx, outy, outc);
 	input [7:0] inx;
 	input [6:0] iny;
 	input [2:0] inc;
@@ -503,9 +500,9 @@ module datapath(box_en, inx, iny, inc, clock50mil, resetn, outx, outy, outc);
 		end
 	end
 	
-endmodule
+	endmodule
 
-module draw_column(clock50mil, inx, iny, select, resetn, draw_en, outx, outy, outc);
+	module draw_column(clock50mil, inx, iny, select, resetn, draw_en, outx, outy, outc);
 	input [7:0] inx; // given x, y coord, erase that column starting at (x,y)
 	input [6:0] iny;
 	input clock50mil, resetn, select, draw_en;
@@ -554,9 +551,9 @@ module draw_column(clock50mil, inx, iny, select, resetn, draw_en, outx, outy, ou
 	assign outy = tempy + c2;
 	assign outc = tempc; // column should be coloured black
 			
-endmodule
+	endmodule
 
-module column_counter(clock4ps, resetn, enable, q, column_erase_en);
+	module column_counter(clock4ps, resetn, enable, q, column_erase_en);
 	input clock4ps, resetn, enable;
 	output reg [3:0] q;
 	output reg column_erase_en;
@@ -577,10 +574,10 @@ module column_counter(clock4ps, resetn, enable, q, column_erase_en);
 		else
 			column_erase_en <= 0;
 	end
-endmodule
+	endmodule
+	
 
-
-module boxes_tracker(collided, enablenew, iny, clock_4ps, resetn, outx3, outy3, outx2, outy2, outx1, outy1, outx0, outy0, box, erase_box, box_y); 
+	module boxes_tracker(collided, enablenew, iny, clock_4ps, resetn, outx3, outy3, outx2, outy2, outx1, outy1, outx0, outy0, box, erase_box, box_y); 
 	input enablenew, clock_4ps, resetn, collided;
 	input [6:0]iny;
 	output reg [7:0] outx3, outx2, outx1, outx0; 
@@ -770,9 +767,9 @@ module boxes_tracker(collided, enablenew, iny, clock_4ps, resetn, outx3, outy3, 
 		
 	end
 	
-endmodule
+	endmodule
 
-module clock60ps(clock,resetn,enable,out); // one high every 1/60th second
+	module clock60ps(clock,resetn,enable,out); // one high every 1/60th second
 	input clock, resetn, enable;
 	reg [19:0] q;
 	output reg out;
@@ -780,13 +777,13 @@ module clock60ps(clock,resetn,enable,out); // one high every 1/60th second
 	always @(posedge clock, negedge resetn) begin
 		if(!resetn) begin
 			q <= 20'd833333; //one high every 833,333 cycles
-//			q <= 20'd2000;
+	//			q <= 20'd2000;
 			out <= 0;
 		end
 		else if (enable == 1'b1) begin
 			if ( q == 0 ) begin
 				q <= 20'd83333;
-//				q <= 20'd2000;
+	//				q <= 20'd2000;
 				out <= 1;
 			end
 			else begin
@@ -795,9 +792,9 @@ module clock60ps(clock,resetn,enable,out); // one high every 1/60th second
 			end
 		end
 	end
-endmodule
+	endmodule
 
-module clock4ps(clock60ps, resetn, enable, out); // rate counter 4 pixels per second 
+	module clock4ps(clock60ps, resetn, enable, out); // rate counter 4 pixels per second 
 	input clock60ps, resetn, enable;
 	reg [3:0] q;
 	output reg out;
@@ -818,9 +815,9 @@ module clock4ps(clock60ps, resetn, enable, out); // rate counter 4 pixels per se
 			end
 		end
 	end
-endmodule
+	endmodule
 					
-module clocktest(clock50, resetn, enable, out60, out4);
+	module clocktest(clock50, resetn, enable, out60, out4);
 	input clock50, resetn, enable;
 	output out60, out4;
 	wire outc60, outc4;
@@ -830,9 +827,9 @@ module clocktest(clock50, resetn, enable, out60, out4);
 	
 	assign out60 = outc60;
 	assign out4 = outc4;
-endmodule
+	endmodule
 
-module counter_x(clock, reset_n, enable, q); // count to 10 + 1 TEMP WIDTH 
+	module counter_x(clock, reset_n, enable, q); // count to 10 + 1 TEMP WIDTH 
 	input clock, reset_n, enable;
 	output reg 	[3:0] q;
 	
@@ -883,9 +880,9 @@ module counter(clock, resetn, enable, q); // counts to 240 i.e. amount of time t
 				q <= q + 1;
 		end
 	end
-endmodule
+	endmodule
 
-module count_box_enable(clock4ps, resetn, enable, q);// counts 60 cycles of 4ps i.e. amount of time between boxes
+	module count_box_enable(clock4ps, resetn, enable, q);// counts 60 cycles of 4ps i.e. amount of time between boxes
 	input clock4ps, resetn, enable;
 	output reg [7:0] q;
 	
@@ -899,9 +896,9 @@ module count_box_enable(clock4ps, resetn, enable, q);// counts 60 cycles of 4ps 
 				q <= q + 1;
 		end
 	end
-endmodule
+	endmodule
 
-module random_height(CLOCK_50, clock4ps, resetn, enable, out_random_y, new_y_enable);
+	module random_height(CLOCK_50, clock4ps, resetn, enable, out_random_y, new_y_enable);
 	input CLOCK_50, clock4ps, resetn, enable;
 	output reg [6:0] out_random_y;
 	output reg new_y_enable;
@@ -930,9 +927,9 @@ module random_height(CLOCK_50, clock4ps, resetn, enable, out_random_y, new_y_ena
 			new_y_enable <= 0;
 	end
 	
-endmodule
+	endmodule
 
-module rate_divider(enable, data, clk, reset, q);
+	module rate_divider(enable, data, clk, reset, q);
 	input enable, clk, reset;
 	input [9:0] data;
 	output reg [9:0] q;
@@ -949,9 +946,9 @@ module rate_divider(enable, data, clk, reset, q);
 					q <= q - 1'b1;
 			end
 	end
-endmodule
+	endmodule
 
-module counterto50mil(CLOCK_50, resetn, enable, q);
+	module counterto50mil(CLOCK_50, resetn, enable, q);
 	input CLOCK_50, resetn, enable;
 	output reg [27:0] q;
 	
@@ -965,15 +962,15 @@ module counterto50mil(CLOCK_50, resetn, enable, q);
 				q = q + 1;
 		end
 	end
-endmodule
+	endmodule
 
 
-module count10seconds(CLOCK_50, resetn, enable, tencounter, enable_hexes); // outputs how many seconds have passed up to 10
+	module count10seconds(CLOCK_50, resetn, enable, tencounter, enable_hexes); // outputs how many seconds have passed up to 10
 	input CLOCK_50, resetn, enable;
 	reg [27:0] q;
 	output reg [3:0] tencounter;
 	output reg enable_hexes;
-//	output reg [3:0] h1, h2, h3, h4, h5;
+	//	output reg [3:0] h1, h2, h3, h4, h5;
 	
 	always @(posedge CLOCK_50) begin
 		if (!resetn)
@@ -1006,9 +1003,9 @@ module count10seconds(CLOCK_50, resetn, enable, tencounter, enable_hexes); // ou
 			end
 		end
 	end	
-endmodule
+	endmodule
 
-module counttens(clock, resetn, enable, q);
+	module counttens(clock, resetn, enable, q);
 	input clock, resetn, enable;
 	output reg [3:0] q;
 	
@@ -1022,10 +1019,10 @@ module counttens(clock, resetn, enable, q);
 				q = q + 1;
 		end
 	end
-endmodule
+	endmodule
 
 
-module test_rh(CLOCK_50, resetn, out_y, out_enable);
+	module test_rh(CLOCK_50, resetn, out_y, out_enable);
 	input CLOCK_50, resetn;
 	output [6:0] out_y;
 	output out_enable;
@@ -1040,9 +1037,9 @@ module test_rh(CLOCK_50, resetn, out_y, out_enable);
 	
 	assign out_y = y;
 	assign out_enable = en;
-endmodule
+	endmodule
 
-module control_combined_datapath(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, CLOCK_50, resetn, box_en, x, y, c, plot);
+	module control_combined_datapath(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0, CLOCK_50, resetn, box_en, x, y, c, plot);
 	input [7:0] inx3, inx2, inx1, inx0;
 	input [6:0] iny3, iny2, iny1, iny0;
 	input [3:0] box_en;
@@ -1067,9 +1064,9 @@ module control_combined_datapath(inx3, iny3, inx2, iny2, inx1, iny1, inx0, iny0,
 	assign y = yout;
 	assign c = cout;
 	
-endmodule
+	endmodule
 
-module all (CLOCK_50, resetn, draw_new, key, x, y, colour, writeEn);
+	module all (CLOCK_50, resetn, draw_new, key, x, y, colour, writeEn);
 	input CLOCK_50, resetn, draw_new, key;
 	output [7:0] x;
 	output [6:0] y;
@@ -1102,9 +1099,9 @@ module all (CLOCK_50, resetn, draw_new, key, x, y, colour, writeEn);
 		assign jump_sig = 1'b1;
 		
 	
-endmodule
+	endmodule
 
-module hexdecoder(hex_digit, segments);
+	module hexdecoder(hex_digit, segments);
     input [3:0] hex_digit;
     output reg [6:0] segments;
    
@@ -1128,4 +1125,4 @@ module hexdecoder(hex_digit, segments);
             4'hF: segments = 7'b000_1110;   
             default: segments = 7'h7f;
         endcase
-endmodule
+	endmodule
