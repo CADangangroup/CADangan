@@ -1864,3 +1864,12 @@ Since we need to use lcd on the fpga
 ![CU](https://user-images.githubusercontent.com/87574784/126041043-9bc148ea-91ae-4a84-a81c-24d8714a8d45.PNG)
 ![DU](https://user-images.githubusercontent.com/87574784/126041045-301f57e1-48e7-4e33-8075-747a84d46c1e.PNG)
 
+# Block Diagram 
+![bdf](https://user-images.githubusercontent.com/87574784/126041074-251a8bee-b2ef-419b-886d-9f862e8b260f.PNG)
+
+# Pin Planner 
+![wire bond](https://user-images.githubusercontent.com/87574784/126041138-2bf271a9-c0e9-400d-8aee-720fb69b601c.PNG)
+
+![pin1](https://user-images.githubusercontent.com/87574784/126041142-be708ead-28a7-49e5-8982-1ee1553d9c24.PNG)
+![pin2](https://user-images.githubusercontent.com/87574784/126041144-ba3a619a-5787-4111-a8a1-8bc355382bfc.PNG)
+![pin3](https://user-images.githubusercontent.com/87574784/126041145-a97c9964-1490-4ff0-80ec-d9213a0c3644.PNG)
