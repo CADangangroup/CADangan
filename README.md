@@ -845,10 +845,10 @@ De2 board Cyclone II ( EP2C35F672C6N )
 		  else
 			  q <= q + 1;
 		end
-   end
-endmodule
+	   end
+	endmodule
 
-module counter_y(clock, height, reset_n, enable, q); // count to 20 TEMP HEIGHT
+	module counter_y(clock, height, reset_n, enable, q); // count to 20 TEMP HEIGHT
 	input clock, reset_n, enable;
 	input [5:0] height;
 	output reg 	[5:0] q;
@@ -863,10 +863,10 @@ module counter_y(clock, height, reset_n, enable, q); // count to 20 TEMP HEIGHT
 		  else
 			  q <= q + 1;
 		end
-   end
-endmodule
+ 	  end
+	endmodule
 	
-module counter(clock, resetn, enable, q); // counts to 240 i.e. amount of time to draw 1 box
+	module counter(clock, resetn, enable, q); // counts to 240 i.e. amount of time to draw 1 box
 	input clock, resetn, enable;
 	output reg [9:0] q;
 	
