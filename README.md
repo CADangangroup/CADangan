@@ -1873,3 +1873,6 @@ Since we need to use lcd on the fpga
 ![pin1](https://user-images.githubusercontent.com/87574784/126041142-be708ead-28a7-49e5-8982-1ee1553d9c24.PNG)
 ![pin2](https://user-images.githubusercontent.com/87574784/126041144-ba3a619a-5787-4111-a8a1-8bc355382bfc.PNG)
 ![pin3](https://user-images.githubusercontent.com/87574784/126041145-a97c9964-1490-4ff0-80ec-d9213a0c3644.PNG)
+
+# Hardware Implemented 
+![photo_2021-07-17_23-08-32](https://user-images.githubusercontent.com/87574784/126041210-320d3c2d-bab9-4bdc-88f5-e0606fe0fbeb.jpg)
