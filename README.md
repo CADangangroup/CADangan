@@ -1860,3 +1860,7 @@ Since we need to use lcd on the fpga
 
 	endmodule
 	
+# Compilation Report
+![CU](https://user-images.githubusercontent.com/87574784/126041043-9bc148ea-91ae-4a84-a81c-24d8714a8d45.PNG)
+![DU](https://user-images.githubusercontent.com/87574784/126041045-301f57e1-48e7-4e33-8075-747a84d46c1e.PNG)
+
